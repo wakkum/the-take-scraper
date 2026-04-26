@@ -66,7 +66,7 @@ def main():
     else:
         data = []
         
-    existing_titles = {ep['episode_title'] for ep in data}
+    existing_titles = {ep['episode_title'].strip() for ep in data}
     
     # 2. Fetch latest RSS
     print("Checking for new episodes...")
@@ -76,7 +76,7 @@ def main():
     
     # Check the first 10 episodes in the feed (in case they published a few over a weekend)
     for ep in feed.entries[:10]:
-        title = ep.title
+        title = ep.title.strip()
         if title in existing_titles:
             continue
             

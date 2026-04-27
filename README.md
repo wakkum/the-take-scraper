@@ -1,6 +1,6 @@
 # The Take Podcast Scraper
 
-This tool parses the RSS feed for Al Jazeera's podcast "The Take" and uses Gemini 2.5 Flash to automatically extract the names, affiliations, and bios of the guests from the episode descriptions.
+This tool parses the RSS feed for Al Jazeera's podcast "The Take" and uses Gemini 2.5 Flash to automatically extract the names, affiliations, and bios of the guests, as well as hosts, producers, and topics from the episode descriptions.
 
 ## Setup
 

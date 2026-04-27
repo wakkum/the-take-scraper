@@ -25,11 +25,18 @@ def fetch_rss():
 
 def extract(title, desc):
     prompt = f"""
-    Extract the guests and generate 5 tags from this podcast description. 
+    Analyze the following podcast episode description.
+    1. Extract the names of any guests featured in the episode, along with their affiliation (who they work for) and a short bio or title if mentioned.
+    2. Extract the name of the host. Usually this is Malika Bilal. However, if a "guest host" is mentioned in the description, ONLY extract the name of the guest host and exclude the regular host.
+    3. Extract the names of the producers, sound designers, and other staff mentioned in the credits at the end of the description.
+    4. Generate 3 to 5 relevant tags (topics, countries, subjects) for the episode.
+
     Respond ONLY with a valid JSON object.
     {{
       "guests": [{{"name": "Name", "affiliation": "Org", "bio": "Bio"}}],
-      "tags": ["Tag1", "Tag2", "Tag3", "Tag4", "Tag5"]
+      "hosts": ["Host Name"],
+      "producers": ["Producer Name"],
+      "tags": ["Tag1", "Tag2", "Tag3"]
     }}
     
     Episode Title: {title}
@@ -90,6 +97,8 @@ def main():
             "published_date": ep.published, # Keep RSS published format, we can parse it in JS
             "episode_url": ep.link,
             "guests": extracted.get('guests', []) if extracted else [],
+            "hosts": extracted.get('hosts', []) if extracted else [],
+            "producers": extracted.get('producers', []) if extracted else [],
             "tags": extracted.get('tags', []) if extracted else []
         }
         new_episodes.append(new_ep_data)

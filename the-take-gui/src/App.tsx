@@ -13,6 +13,8 @@ interface Episode {
   published_date: string;
   episode_url: string;
   guests: Guest[];
+  hosts?: string[];
+  producers?: string[];
   tags: string[];
   _searchIndex?: string;
 }
@@ -33,8 +35,8 @@ const GuestCard = memo(({
   appearances: string[], 
   selectedGuest: string | null, 
   selectedOrg: string | null, 
-  setSelectedGuest: (v: string) => void, 
-  setSelectedOrg: (v: string) => void, 
+  setSelectedGuest: (v: string | null) => void, 
+  setSelectedOrg: (v: string | null) => void, 
   navigateToEpisode: (t: string) => void 
 }) => {
   const [showAllAppearances, setShowAllAppearances] = useState(false);
@@ -45,9 +47,9 @@ const GuestCard = memo(({
   return (
     <div className={`bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-700 rounded-xl p-4 transition-colors ${selectedGuest === guestName ? 'ring-2 ring-blue-500 bg-blue-50/30' : ''}`}>
       <button 
-        onClick={() => setSelectedGuest(guestName)}
-        className="font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2 hover:text-aljazeera transition-colors text-left"
-        title={`Click to filter all episodes by ${guestName}`}
+        onClick={() => setSelectedGuest(selectedGuest === guestName ? null : guestName)}
+        className="cursor-pointer font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2 hover:text-aljazeera transition-colors text-left"
+        title={selectedGuest === guestName ? `Clear filter for ${guestName}` : `Click to filter all episodes by ${guestName}`}
       >
         <User size={16} className={selectedGuest === guestName ? 'text-blue-500' : 'text-aljazeera'} /> 
         <span className={selectedGuest === guestName ? 'underline decoration-blue-300 underline-offset-4' : 'underline decoration-transparent hover:decoration-aljazeera/30 underline-offset-4 transition-all'}>
@@ -61,9 +63,9 @@ const GuestCard = memo(({
             <div className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
               <Briefcase size={14} className={`mt-0.5 shrink-0 ${selectedOrg === guest.affiliation.trim() ? 'text-purple-500' : 'text-gray-400 dark:text-gray-500'}`} />
               <button
-                onClick={() => setSelectedOrg(guest.affiliation!.trim())}
-                className={`text-left transition-colors ${selectedOrg === guest.affiliation.trim() ? 'text-purple-700 font-semibold underline decoration-purple-300 underline-offset-4' : 'hover:text-purple-600 hover:underline decoration-transparent hover:decoration-purple-300 underline-offset-4 transition-all'}`}
-                title={`Click to filter all episodes with guests from ${guest.affiliation}`}
+                onClick={() => setSelectedOrg(selectedOrg === guest.affiliation!.trim() ? null : guest.affiliation!.trim())}
+                className={`cursor-pointer text-left transition-colors ${selectedOrg === guest.affiliation!.trim() ? 'text-purple-700 font-semibold underline decoration-purple-300 underline-offset-4' : 'hover:text-purple-600 hover:underline decoration-transparent hover:decoration-purple-300 underline-offset-4 transition-all'}`}
+                title={selectedOrg === guest.affiliation!.trim() ? `Clear filter for ${guest.affiliation}` : `Click to filter all episodes with guests from ${guest.affiliation}`}
               >
                 {guest.affiliation}
               </button>
@@ -140,6 +142,8 @@ export default function App() {
           const searchParts = [
             ep.episode_title,
             ...(ep.guests?.map(g => `${g.name || ''} ${g.affiliation || ''} ${g.bio || ''}`) || []),
+            ...(ep.hosts || []),
+            ...(ep.producers || []),
             ...(ep.tags || [])
           ];
           return {
@@ -156,6 +160,7 @@ export default function App() {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [selectedGuest, setSelectedGuest] = useState<string | null>(null);
   const [selectedOrg, setSelectedOrg] = useState<string | null>(null);
+  const [selectedHost, setSelectedHost] = useState<string | null>(null);
   const [showAllTags, setShowAllTags] = useState(false);
   const [highlightedEpisodeTitle, setHighlightedEpisodeTitle] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(50); // DOM pagination
@@ -190,6 +195,7 @@ export default function App() {
     setSelectedTags([]);
     setSelectedGuest(null);
     setSelectedOrg(null);
+    setSelectedHost(null);
     setDateMode('all');
     setFilterMonth('');
     setDateFrom('');
@@ -215,12 +221,12 @@ export default function App() {
 
   useEffect(() => {
     // Clear highlight if user starts searching or filtering manually
-    if (searchQuery || selectedTags.length > 0 || selectedGuest || selectedOrg || dateMode !== 'all') {
+    if (searchQuery || selectedTags.length > 0 || selectedGuest || selectedOrg || selectedHost || dateMode !== 'all') {
       setHighlightedEpisodeTitle(null);
     }
     // Reset pagination when filters change
     setVisibleCount(50);
-  }, [searchQuery, selectedTags, selectedGuest, selectedOrg, dateMode]);
+  }, [searchQuery, selectedTags, selectedGuest, selectedOrg, selectedHost, dateMode]);
 
   // Extract all unique months for the dropdown
   const availableMonths = useMemo(() => {
@@ -275,9 +281,9 @@ export default function App() {
     const results = data.filter(ep => {
       const matchesSelectedGuest = !selectedGuest || ep.guests?.some(g => g.name.trim() === selectedGuest);
       const matchesSelectedOrg = !selectedOrg || ep.guests?.some(g => g.affiliation?.trim() === selectedOrg);
-      
-      let matchesText = true;
-      if (q !== '') {
+      const matchesSelectedHost = !selectedHost || ep.hosts?.some(h => h.trim() === selectedHost);
+
+      let matchesText = true;      if (q !== '') {
         const searchTerms = q.split(' ').filter(term => term.length > 0);
         // ALL search terms must be present somewhere in the episode's search index (AND logic)
         matchesText = !!(ep._searchIndex && searchTerms.every(term => ep._searchIndex!.includes(term)));
@@ -310,7 +316,7 @@ export default function App() {
           // console.log(`Testing ${ep.episode_title}: Text=${matchesText} Guest=${matchesSelectedGuest}`);
       }
 
-      return matchesSelectedGuest && matchesSelectedOrg && matchesText && matchesTags && matchesDate;
+      return matchesSelectedHost && matchesSelectedGuest && matchesSelectedOrg && matchesText && matchesTags && matchesDate;
     });
     
     results.sort((a, b) => {
@@ -324,16 +330,18 @@ export default function App() {
     });
     
     return results;
-  }, [data, searchQuery, selectedTags, selectedGuest, selectedOrg, dateMode, filterMonth, dateFrom, dateTo, sortOrder]);
+  }, [data, searchQuery, selectedTags, selectedGuest, selectedOrg, selectedHost, dateMode, filterMonth, dateFrom, dateTo, sortOrder]);
 
   // Suggest related tags based on filtered episodes (tags that co-occur but aren't currently selected)
   const exportToCSV = () => {
-    const headers = ['Episode Title', 'Published Date', 'URL', 'Guests', 'Tags'];
+    const headers = ['Episode Title', 'Published Date', 'URL', 'Hosts', 'Guests', 'Producers', 'Tags'];
     const rows = filteredEpisodes.map(ep => [
       `"${ep.episode_title.replace(/"/g, '""')}"`,
       `"${ep.published_date}"`,
       `"${ep.episode_url}"`,
+      `"${(ep.hosts || []).join(', ')}"`,
       `"${(ep.guests || []).map(g => g.name).join(', ')}"`,
+      `"${(ep.producers || []).join(', ')}"`,
       `"${(ep.tags || []).join(', ')}"`
     ]);
     const csvContent = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
@@ -560,6 +568,14 @@ export default function App() {
             
             {/* Show active filter badges */}
             <div className="flex flex-wrap items-center gap-2">
+              {selectedHost && (
+                <div className="flex items-center gap-2 bg-green-50 border border-green-200 text-green-700 px-3 py-1 rounded-lg text-sm font-semibold animate-in fade-in zoom-in duration-200">
+                  <User size={14} /> Filtering by Host: {selectedHost}
+                  <button onClick={() => setSelectedHost(null)} className="ml-1 hover:text-green-900 focus:outline-none" title="Clear host filter">
+                    <X size={14} />
+                  </button>
+                </div>
+              )}
               {selectedGuest && (
                 <div className="flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 px-3 py-1 rounded-lg text-sm font-semibold animate-in fade-in zoom-in duration-200">
                   <User size={14} /> Filtering by Guest: {selectedGuest}
@@ -630,12 +646,13 @@ export default function App() {
             </div>
           )}
 
-          {(selectedTags.length > 0 || selectedGuest || selectedOrg || dateMode !== 'all') && (
+          {(selectedTags.length > 0 || selectedGuest || selectedOrg || selectedHost || dateMode !== 'all') && (
             <button 
               onClick={() => { 
                 setSelectedTags([]); 
                 setSelectedGuest(null); 
                 setSelectedOrg(null); 
+                setSelectedHost(null);
                 setDateMode('all');
                 setFilterMonth('');
                 setDateFrom('');
@@ -734,6 +751,34 @@ export default function App() {
                           </button>
                         );
                       })}
+                    </div>
+                  )}
+
+                  {/* Hosts & Producers */}
+                  {(ep.hosts?.length || 0) > 0 && (
+                    <div className="mb-4">
+                      <h4 className="text-sm font-bold text-gray-900 dark:text-gray-100 border-b border-gray-100 dark:border-gray-700 pb-2 mb-2">Host(s)</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {ep.hosts?.map(host => (
+                          <button 
+                            key={host} 
+                            onClick={() => setSelectedHost(selectedHost === host.trim() ? null : host.trim())}
+                            title={selectedHost === host.trim() ? `Clear filter for ${host}` : `Filter episodes hosted by ${host}`}
+                            className={`cursor-pointer px-3 py-1 rounded-lg text-sm font-medium border transition-colors ${selectedHost === host.trim() ? 'bg-green-600 text-white border-green-600 shadow-sm' : 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-100 dark:border-blue-800 hover:bg-blue-100 dark:hover:bg-blue-800/50'}`}
+                          >
+                            {host}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {(ep.producers?.length || 0) > 0 && (
+                    <div className="mb-4">
+                      <h4 className="text-sm font-bold text-gray-900 dark:text-gray-100 border-b border-gray-100 dark:border-gray-700 pb-2 mb-2">Production Team</h4>
+                      <div className="text-sm text-gray-600 dark:text-gray-400">
+                        {ep.producers?.join(', ')}
+                      </div>
                     </div>
                   )}
 

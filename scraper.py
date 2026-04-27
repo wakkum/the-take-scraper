@@ -45,8 +45,10 @@ def extract_guests_from_description(client, episode_title, description):
     
     prompt = f"""
     You are a research assistant. Analyze the following podcast episode description.
-    1. Extract the names of any guests featured in the episode, along with their affiliation (who they work for) and a short bio or title if mentioned. Do not include the host (e.g., Malika Bilal).
-    2. Generate 3 to 5 relevant tags (topics, countries, subjects) for the episode.
+    1. Extract the names of any guests featured in the episode, along with their affiliation (who they work for) and a short bio or title if mentioned.
+    2. Extract the name of the host. Usually this is Malika Bilal. However, if a "guest host" is mentioned in the description, ONLY extract the name of the guest host and exclude the regular host.
+    3. Extract the names of the producers, sound designers, and other staff mentioned in the credits at the end of the description.
+    4. Generate 3 to 5 relevant tags (topics, countries, subjects) for the episode.
 
     Episode Title: {episode_title}
     Description:
@@ -78,13 +80,23 @@ def extract_guests_from_description(client, episode_title, description):
                                     required=["name"]
                                 )
                             ),
+                            "hosts": types.Schema(
+                                type=types.Type.ARRAY,
+                                items=types.Schema(type=types.Type.STRING),
+                                description="The name(s) of the host(s)"
+                            ),
+                            "producers": types.Schema(
+                                type=types.Type.ARRAY,
+                                items=types.Schema(type=types.Type.STRING),
+                                description="Names of producers, sound designers, etc."
+                            ),
                             "tags": types.Schema(
                                 type=types.Type.ARRAY,
                                 items=types.Schema(type=types.Type.STRING),
                                 description="3 to 5 tags representing the main topics"
                             )
                         },
-                        required=["guests", "tags"]
+                        required=["guests", "hosts", "producers", "tags"]
                     ),
                     temperature=0.1,
                 ),
@@ -111,7 +123,7 @@ def extract_guests_from_description(client, episode_title, description):
         return json.loads(response_text)
     except Exception as e:
         print(f"Error calling Gemini API for episode '{episode_title}': {e}\nRaw Response: {response.text if 'response' in locals() else 'No response'}")
-        return {"guests": [], "tags": []}
+        return {"guests": [], "hosts": [], "producers": [], "tags": []}
 
 def main():
     api_key = os.environ.get("GEMINI_API_KEY")
@@ -163,6 +175,8 @@ def main():
                 "published_date": published_date,
                 "episode_url": link,
                 "guests": extracted.get("guests", []),
+                "hosts": extracted.get("hosts", []),
+                "producers": extracted.get("producers", []),
                 "tags": extracted.get("tags", [])
             })
             new_count += 1

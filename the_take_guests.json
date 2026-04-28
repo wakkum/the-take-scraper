@@ -1,5 +1,39 @@
 [
   {
+    "episode_title": "Is a US-Iran deal still possible?",
+    "published_date": "Tue, 28 Apr 2026 04:00:00 +0000",
+    "episode_url": "https://omny.fm/shows/the-take/is-a-us-iran-deal-still-possible",
+    "guests": [
+      {
+        "name": "Osama Bin Javaid",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      }
+    ],
+    "hosts": [
+      "Kevin Hirten"
+    ],
+    "producers": [
+      "David Enders",
+      "Chloe K. Li",
+      "Catherine Nouhan",
+      "Tuleen Barakat",
+      "Sarí el-Khalili",
+      "Tamara Khandaker",
+      "Alex Roldan",
+      "Hisham Abu Salah",
+      "Mohannad al-Melhemm",
+      "Alexandra Locke"
+    ],
+    "tags": [
+      "US-Iran Relations",
+      "Diplomacy",
+      "Geopolitics",
+      "Trade",
+      "Middle East Conflict"
+    ]
+  },
+  {
     "episode_title": "What does the White House dinner shooting mean for Trump?",
     "published_date": "Sun, 26 Apr 2026 17:45:00 +0000",
     "episode_url": "https://omny.fm/shows/the-take/what-does-the-white-house-dinner-shooting-mean-for-trump",

@@ -1,5 +1,44 @@
 [
   {
+    "episode_title": "What does Chornobyl look like 40 years later?",
+    "published_date": "Wed, 29 Apr 2026 04:00:00 +0000",
+    "episode_url": "https://omny.fm/shows/the-take/what-does-chornobyl-look-like-40-years-later",
+    "guests": [
+      {
+        "name": "Nils Adler",
+        "affiliation": "Al Jazeera",
+        "bio": "Journalist"
+      }
+    ],
+    "hosts": [
+      "Malika Bilal"
+    ],
+    "producers": [
+      "Marcos Bartolomé",
+      "Sonia Bhagat",
+      "Chloe K. Li",
+      "Spencer Cline",
+      "Tuleen Barakat",
+      "Catherine Nouhan",
+      "Tamara Khandaker",
+      "Noor Wazwaz",
+      "Alex Roldan",
+      "Adam Abou-Gad",
+      "Vienna Maglio",
+      "Andrew Greiner",
+      "Hisham Abu Salah",
+      "Mohannad al-Melhem",
+      "Alexandra Locke"
+    ],
+    "tags": [
+      "Chornobyl",
+      "Nuclear Disaster",
+      "Ukraine",
+      "War",
+      "Radioactivity"
+    ]
+  },
+  {
     "episode_title": "Is a US-Iran deal still possible?",
     "published_date": "Tue, 28 Apr 2026 04:00:00 +0000",
     "episode_url": "https://omny.fm/shows/the-take/is-a-us-iran-deal-still-possible",

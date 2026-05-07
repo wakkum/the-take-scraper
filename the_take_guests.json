@@ -1,5 +1,74 @@
 [
   {
+    "episode_title": "Inside the Israeli bloc that could topple Netanyahu",
+    "published_date": "Thu, 07 May 2026 04:00:00 +0000",
+    "episode_url": "https://omny.fm/shows/the-take/inside-the-israeli-bloc-that-could-topple-netanyahu",
+    "guests": [
+      {
+        "name": "Mairav Zonszein",
+        "affiliation": "International Crisis Group",
+        "bio": "Senior Israel Analyst"
+      }
+    ],
+    "hosts": [
+      "Malika Bilal"
+    ],
+    "producers": [
+      "Noor Wazwaz",
+      "Sarí el-Khalili",
+      "Spencer Cline",
+      "Chloe K. Li",
+      "Tuleen Barakat",
+      "Tamara Khandaker",
+      "Alex Roldan",
+      "Hisham Abu Salah",
+      "Mohannad al-Melhem",
+      "Alexandra Locke"
+    ],
+    "tags": [
+      "Israel",
+      "Politics",
+      "Elections",
+      "Benjamin Netanyahu",
+      "Middle East"
+    ]
+  },
+  {
+    "episode_title": "‘This is my last voice note’: how piracy returned to Somalia and Yemen",
+    "published_date": "Wed, 06 May 2026 04:00:00 +0000",
+    "episode_url": "https://aj.audio/TheTakePodcast",
+    "guests": [
+      {
+        "name": "Mohamed Gabobe",
+        "affiliation": null,
+        "bio": "Journalist"
+      }
+    ],
+    "hosts": [
+      "Malika Bilal"
+    ],
+    "producers": [
+      "Marcos Bartolomé",
+      "Sarí el-Khalili",
+      "Spencer Cline",
+      "Tuleen Barakat",
+      "Catherine Nouhan",
+      "Tamara Khandaker",
+      "Alex Roldan",
+      "Rick Rush",
+      "Hisham Abu Salah",
+      "Mohannad al-Melhem",
+      "Alexandra Locke"
+    ],
+    "tags": [
+      "Piracy",
+      "Somalia",
+      "Yemen",
+      "Shipping",
+      "Middle East"
+    ]
+  },
+  {
     "episode_title": "Could OPEC break lead to era of energy volatility?",
     "published_date": "Mon, 04 May 2026 23:34:56 +0000",
     "episode_url": "https://omny.fm/shows/the-take/could-opec-break-lead-to-era-of-energy-volatility",

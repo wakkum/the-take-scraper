@@ -1,5 +1,49 @@
 [
   {
+    "episode_title": "Justice for Shireen: The American investigation",
+    "published_date": "Fri, 08 May 2026 04:00:00 +0000",
+    "episode_url": "https://omny.fm/shows/the-take/justice-for-shireen-the-american-investigation",
+    "guests": [
+      {
+        "name": "Lina Abu Akleh",
+        "affiliation": null,
+        "bio": "Niece of Shireen Abu Akleh"
+      },
+      {
+        "name": "Katherine Gallagher",
+        "affiliation": "Center for Constitutional Rights",
+        "bio": "Human Rights Attorney"
+      },
+      {
+        "name": "Said Arikat",
+        "affiliation": null,
+        "bio": "Journalist"
+      }
+    ],
+    "hosts": [
+      "Halla Mohieddeen"
+    ],
+    "producers": [
+      "Sarí el-Khalili",
+      "Negin Owliaei",
+      "Amy Walters",
+      "Ruby Zaman",
+      "Chloe K. Li",
+      "Alexandra Locke",
+      "Alex Roldan",
+      "Adam Abou-Gad",
+      "Vienna Maglio",
+      "Andrew Greiner"
+    ],
+    "tags": [
+      "Shireen Abu Akleh",
+      "Journalism",
+      "Human Rights",
+      "Israel-Palestine",
+      "US Investigation"
+    ]
+  },
+  {
     "episode_title": "Inside the Israeli bloc that could topple Netanyahu",
     "published_date": "Thu, 07 May 2026 04:00:00 +0000",
     "episode_url": "https://omny.fm/shows/the-take/inside-the-israeli-bloc-that-could-topple-netanyahu",

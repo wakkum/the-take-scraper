@@ -1,5 +1,39 @@
 [
   {
+    "episode_title": "Hantavirus: how scared should we be?",
+    "published_date": "Fri, 15 May 2026 04:00:00 +0000",
+    "episode_url": "https://omny.fm/shows/the-take/hantavirus-how-scared-should-we-be",
+    "guests": [
+      {
+        "name": "Dylan Scott",
+        "affiliation": "Vox",
+        "bio": "Senior Correspondent"
+      }
+    ],
+    "hosts": [
+      "Kevin Hirten"
+    ],
+    "producers": [
+      "Noor Wazwaz",
+      "Sarí el-Khalili",
+      "Chloe K. Li",
+      "Catherine Nouhan",
+      "Tuleen Barakat",
+      "Tamara Khandaker",
+      "Alex Roldan",
+      "Hisham Abu Salah",
+      "Mohannad al-Melhem",
+      "Alexandra Locke"
+    ],
+    "tags": [
+      "Hantavirus",
+      "Disease Outbreak",
+      "Public Health",
+      "Viruses",
+      "Global Health"
+    ]
+  },
+  {
     "episode_title": "Iran, Taiwan, and trade: Trump’s high‑stakes return to Beijing",
     "published_date": "Thu, 14 May 2026 04:00:00 +0000",
     "episode_url": "https://omny.fm/shows/the-take/iran-taiwan-and-trade-trump-s-high-stakes-return-to-beijing",

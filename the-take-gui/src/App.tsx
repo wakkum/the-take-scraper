@@ -172,6 +172,9 @@ export default function App() {
   const [dateTo, setDateTo] = useState<string>(''); // YYYY-MM-DD
   const [showHelp, setShowHelp] = useState(false);
   const [sortOrder, setSortOrder] = useState<'newest' | 'oldest' | 'az'>('newest');
+  const [insightsTopN, setInsightsTopN] = useState<1 | 5 | 10>(1);
+  const [insightsYear, setInsightsYear] = useState<string>('all');
+  const [excludeAlJazeera, setExcludeAlJazeera] = useState<boolean>(true);
   const [isDarkMode, setIsDarkMode] = useState(() => {
     // Initialize based on system preference
     if (typeof window !== 'undefined') {
@@ -356,35 +359,54 @@ export default function App() {
     document.body.removeChild(link);
   };
 
+  const insightsYears = useMemo(() => {
+    const years = new Set<string>();
+    filteredEpisodes.forEach(ep => {
+      if (ep.published_date) {
+        const y = new Date(ep.published_date).getFullYear();
+        if (!isNaN(y)) years.add(String(y));
+      }
+    });
+    return Array.from(years).sort((a, b) => Number(b) - Number(a));
+  }, [filteredEpisodes]);
+
+  const isAlJazeeraAffiliation = (org?: string | null) => {
+    if (!org) return false;
+    const o = org.toLowerCase();
+    return o.includes('al jazeera') || o.includes('aj+') || o === 'aje' || o.includes('al-jazeera');
+  };
+
   const insights = useMemo(() => {
     if (filteredEpisodes.length === 0) return null;
     const guestCounts = new Map<string, number>();
     const orgCounts = new Map<string, number>();
-    
-    filteredEpisodes.forEach(ep => {
+
+    const episodesForInsights = insightsYear === 'all'
+      ? filteredEpisodes
+      : filteredEpisodes.filter(ep => {
+          if (!ep.published_date) return false;
+          return String(new Date(ep.published_date).getFullYear()) === insightsYear;
+        });
+
+    episodesForInsights.forEach(ep => {
       ep.guests?.forEach(g => {
         const name = g.name.trim();
-        if (name) guestCounts.set(name, (guestCounts.get(name) || 0) + 1);
-        
         const org = g.affiliation?.trim();
-        if (org) {
-          const orgLower = org.toLowerCase();
-          const isAlJazeera = orgLower.includes('al jazeera') || orgLower.includes('aj+') || orgLower === 'aje' || orgLower.includes('al-jazeera');
-          if (!isAlJazeera) {
-            orgCounts.set(org, (orgCounts.get(org) || 0) + 1);
-          }
+        const guestIsAJ = isAlJazeeraAffiliation(org);
+        if (name && !(excludeAlJazeera && guestIsAJ)) {
+          guestCounts.set(name, (guestCounts.get(name) || 0) + 1);
+        }
+        if (org && !isAlJazeeraAffiliation(org)) {
+          orgCounts.set(org, (orgCounts.get(org) || 0) + 1);
         }
       });
     });
-    
-    const sortedGuests = Array.from(guestCounts.entries()).sort((a,b) => b[1]-a[1]);
-    const sortedOrgs = Array.from(orgCounts.entries()).sort((a,b) => b[1]-a[1]);
-    
-    return { 
-      topGuest: sortedGuests.length > 0 ? sortedGuests[0] : null, 
-      topOrg: sortedOrgs.length > 0 ? sortedOrgs[0] : null 
-    };
-  }, [filteredEpisodes]);
+
+    const sortedGuests = Array.from(guestCounts.entries()).sort((a,b) => b[1]-a[1]).slice(0, insightsTopN);
+    const sortedOrgs = Array.from(orgCounts.entries()).sort((a,b) => b[1]-a[1]).slice(0, insightsTopN);
+
+    return { topGuests: sortedGuests, topOrgs: sortedOrgs };
+  }, [filteredEpisodes, insightsTopN, insightsYear, excludeAlJazeera]);
 
   const relatedTags = useMemo(() => {
     if (selectedTags.length === 0) return [];
@@ -667,31 +689,103 @@ export default function App() {
       </div>
 
       {/* Insights & Export */}
-      {insights && (insights.topGuest || insights.topOrg) && (
-        <div className="bg-gradient-to-r from-aljazeera/10 to-orange-50 dark:from-aljazeera/20 dark:to-gray-900 border border-aljazeera/20 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+      {insights && (insights.topGuests.length > 0 || insights.topOrgs.length > 0) && (
+        <div className="bg-gradient-to-r from-aljazeera/10 to-orange-50 dark:from-aljazeera/20 dark:to-gray-900 border border-aljazeera/20 rounded-2xl p-4 flex flex-col gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div className="flex items-center gap-2 text-aljazeera dark:text-orange-400 font-bold">
               <BarChart3 size={20} /> Quick Insights
             </div>
-            <div className="flex flex-wrap gap-3 text-sm">
-              {insights.topGuest && (
-                <div className="bg-white dark:bg-gray-800 dark:bg-gray-800 px-3 py-1.5 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 dark:border-gray-700 flex items-center gap-2">
-                  <span className="text-gray-500 dark:text-gray-400 dark:text-gray-500 dark:text-gray-400 dark:text-gray-500">Top Guest:</span> <strong className="text-gray-900 dark:text-gray-100 dark:text-white">{insights.topGuest[0]}</strong> <span className="text-xs bg-gray-100 dark:bg-gray-700 px-1.5 rounded text-gray-600 dark:text-gray-400 dark:text-gray-500 dark:text-gray-300">{insights.topGuest[1]}x</span>
-                </div>
-              )}
-              {insights.topOrg && (
-                <div className="bg-white dark:bg-gray-800 dark:bg-gray-800 px-3 py-1.5 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 dark:border-gray-700 flex items-center gap-2">
-                  <span className="text-gray-500 dark:text-gray-400 dark:text-gray-500 dark:text-gray-400 dark:text-gray-500">Top Org:</span> <strong className="text-gray-900 dark:text-gray-100 dark:text-white">{insights.topOrg[0]}</strong> <span className="text-xs bg-gray-100 dark:bg-gray-700 px-1.5 rounded text-gray-600 dark:text-gray-400 dark:text-gray-500 dark:text-gray-300">{insights.topOrg[1]}x</span>
-                </div>
-              )}
+            <div className="flex flex-wrap items-center gap-3 text-sm">
+              <label className="flex items-center gap-1.5 text-gray-700 dark:text-gray-300">
+                <span>Show:</span>
+                <select
+                  value={insightsTopN}
+                  onChange={e => setInsightsTopN(Number(e.target.value) as 1 | 5 | 10)}
+                  className="border border-gray-300 dark:border-gray-600 rounded-lg px-2 py-1 bg-white dark:bg-gray-800"
+                >
+                  <option value={1}>Top 1</option>
+                  <option value={5}>Top 5</option>
+                  <option value={10}>Top 10</option>
+                </select>
+              </label>
+              <label className="flex items-center gap-1.5 text-gray-700 dark:text-gray-300">
+                <span>Year:</span>
+                <select
+                  value={insightsYear}
+                  onChange={e => setInsightsYear(e.target.value)}
+                  className="border border-gray-300 dark:border-gray-600 rounded-lg px-2 py-1 bg-white dark:bg-gray-800"
+                >
+                  <option value="all">All</option>
+                  {insightsYears.map(y => (
+                    <option key={y} value={y}>{y}</option>
+                  ))}
+                </select>
+              </label>
+              <label className="flex items-center gap-1.5 text-gray-700 dark:text-gray-300 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={excludeAlJazeera}
+                  onChange={e => setExcludeAlJazeera(e.target.checked)}
+                  className="accent-aljazeera"
+                />
+                <span>Exclude Al Jazeera people</span>
+              </label>
+              <button
+                onClick={exportToCSV}
+                className="flex items-center gap-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors text-sm font-semibold shadow-sm"
+              >
+                <Download size={16} /> Export CSV
+              </button>
             </div>
           </div>
-          <button 
-            onClick={exportToCSV}
-            className="shrink-0 flex items-center gap-2 px-4 py-2 bg-gray-900 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors text-sm font-semibold shadow-sm"
-          >
-            <Download size={16} /> Export to CSV
-          </button>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {insights.topGuests.length > 0 && (
+              <div className="bg-white dark:bg-gray-800 rounded-lg p-3 border border-gray-100 dark:border-gray-700">
+                <div className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+                  Top {insights.topGuests.length === 1 ? 'Guest' : `${insights.topGuests.length} Guests`}
+                </div>
+                <ol className="space-y-1 text-sm">
+                  {insights.topGuests.map(([name, count], i) => (
+                    <li key={name} className="flex items-center justify-between gap-2">
+                      <span className="flex items-center gap-2">
+                        <span className="text-gray-400 w-5 text-right">{i + 1}.</span>
+                        <button
+                          onClick={() => setSelectedGuest(selectedGuest === name ? null : name)}
+                          className="font-semibold text-gray-900 dark:text-gray-100 hover:text-aljazeera text-left"
+                        >
+                          {name}
+                        </button>
+                      </span>
+                      <span className="text-xs bg-gray-100 dark:bg-gray-700 px-1.5 rounded text-gray-600 dark:text-gray-300">{count}x</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            )}
+            {insights.topOrgs.length > 0 && (
+              <div className="bg-white dark:bg-gray-800 rounded-lg p-3 border border-gray-100 dark:border-gray-700">
+                <div className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+                  Top {insights.topOrgs.length === 1 ? 'Org' : `${insights.topOrgs.length} Orgs`}
+                </div>
+                <ol className="space-y-1 text-sm">
+                  {insights.topOrgs.map(([org, count], i) => (
+                    <li key={org} className="flex items-center justify-between gap-2">
+                      <span className="flex items-center gap-2">
+                        <span className="text-gray-400 w-5 text-right">{i + 1}.</span>
+                        <button
+                          onClick={() => setSelectedOrg(selectedOrg === org ? null : org)}
+                          className="font-semibold text-gray-900 dark:text-gray-100 hover:text-aljazeera text-left"
+                        >
+                          {org}
+                        </button>
+                      </span>
+                      <span className="text-xs bg-gray-100 dark:bg-gray-700 px-1.5 rounded text-gray-600 dark:text-gray-300">{count}x</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            )}
+          </div>
         </div>
       )}
 

@@ -379,6 +379,7 @@ export default function App() {
   const insights = useMemo(() => {
     if (filteredEpisodes.length === 0) return null;
     const guestCounts = new Map<string, number>();
+    const guestOrgs = new Map<string, Map<string, number>>();
     const orgCounts = new Map<string, number>();
 
     const episodesForInsights = insightsYear === 'all'
@@ -395,6 +396,11 @@ export default function App() {
         const guestIsAJ = isAlJazeeraAffiliation(org);
         if (name && !(excludeAlJazeera && guestIsAJ)) {
           guestCounts.set(name, (guestCounts.get(name) || 0) + 1);
+          if (org) {
+            const orgMap = guestOrgs.get(name) || new Map<string, number>();
+            orgMap.set(org, (orgMap.get(org) || 0) + 1);
+            guestOrgs.set(name, orgMap);
+          }
         }
         if (org && !isAlJazeeraAffiliation(org)) {
           orgCounts.set(org, (orgCounts.get(org) || 0) + 1);
@@ -402,7 +408,16 @@ export default function App() {
       });
     });
 
-    const sortedGuests = Array.from(guestCounts.entries()).sort((a,b) => b[1]-a[1]).slice(0, insightsTopN);
+    const sortedGuests = Array.from(guestCounts.entries())
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, insightsTopN)
+      .map(([name, count]) => {
+        const orgMap = guestOrgs.get(name);
+        const topOrg = orgMap
+          ? Array.from(orgMap.entries()).sort((a, b) => b[1] - a[1])[0]?.[0] ?? null
+          : null;
+        return { name, count, org: topOrg };
+      });
     const sortedOrgs = Array.from(orgCounts.entries()).sort((a,b) => b[1]-a[1]).slice(0, insightsTopN);
 
     return { topGuests: sortedGuests, topOrgs: sortedOrgs };
@@ -745,9 +760,9 @@ export default function App() {
                   Top {insights.topGuests.length === 1 ? 'Guest' : `${insights.topGuests.length} Guests`}
                 </div>
                 <ol className="space-y-1 text-sm">
-                  {insights.topGuests.map(([name, count], i) => (
+                  {insights.topGuests.map(({ name, count, org }, i) => (
                     <li key={name} className="flex items-center justify-between gap-2">
-                      <span className="flex items-center gap-2">
+                      <span className="flex items-center gap-2 flex-wrap">
                         <span className="text-gray-400 w-5 text-right">{i + 1}.</span>
                         <button
                           onClick={() => setSelectedGuest(selectedGuest === name ? null : name)}
@@ -755,6 +770,15 @@ export default function App() {
                         >
                           {name}
                         </button>
+                        {org && (
+                          <button
+                            onClick={() => setSelectedOrg(selectedOrg === org ? null : org)}
+                            className="text-xs text-gray-500 dark:text-gray-400 hover:text-aljazeera italic"
+                            title={`Filter by ${org}`}
+                          >
+                            ({org})
+                          </button>
+                        )}
                       </span>
                       <span className="text-xs bg-gray-100 dark:bg-gray-700 px-1.5 rounded text-gray-600 dark:text-gray-300">{count}x</span>
                     </li>

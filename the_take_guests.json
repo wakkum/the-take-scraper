@@ -1,5 +1,42 @@
 [
   {
+    "episode_title": "Brief: Trump says Iran deal close, World Central Kitchen cuts Gaza aid",
+    "published_date": "Sun, 24 May 2026 11:49:23 +0000",
+    "episode_url": "https://omny.fm/shows/the-take/brief-trump-says-iran-deal-close-world-central-kitchen-cuts-gaza-aid",
+    "guests": [
+      {
+        "name": "Tohid Asadi",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Tareq Abu Azzoum",
+        "affiliation": "Al Jazeera",
+        "bio": "Journalist"
+      },
+      {
+        "name": "Nida Ibrahim",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      }
+    ],
+    "hosts": [],
+    "producers": [
+      "Marthe van der Wolf",
+      "Alex Roldan",
+      "Andrew Greiner",
+      "Munera AlDosari",
+      "Alexandra Locke"
+    ],
+    "tags": [
+      "Gaza",
+      "Israel-Palestine Conflict",
+      "Iran Nuclear Deal",
+      "Humanitarian Aid",
+      "Middle East"
+    ]
+  },
+  {
     "episode_title": "Another Take: What an Ebola outbreak reveals about vaccine inequity",
     "published_date": "Sat, 23 May 2026 04:00:00 +0000",
     "episode_url": "https://omny.fm/shows/the-take/another-take-what-an-ebola-outbreak-reveals-about-vaccine-inequity",

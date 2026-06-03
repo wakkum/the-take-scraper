@@ -1,5 +1,39 @@
 [
   {
+    "episode_title": "The Ebola outbreak the world isn’t paying attention to",
+    "published_date": "Wed, 03 Jun 2026 04:00:00 +0000",
+    "episode_url": "https://omny.fm/shows/the-take/the-ebola-outbreak-the-world-isn-t-paying-attention-to",
+    "guests": [
+      {
+        "name": "Catherine Soi",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      }
+    ],
+    "hosts": [
+      "Malika Bilal"
+    ],
+    "producers": [
+      "Marcos Bartolomé",
+      "Sarí el-Khalili",
+      "Spencer Cline",
+      "Tamara Khandaker",
+      "Jana Dabliz",
+      "Alex Roldan",
+      "Rick Rush",
+      "Hisham Abu Salah",
+      "Mohannad al-Melhemm",
+      "Alexandra Locke"
+    ],
+    "tags": [
+      "Ebola",
+      "Democratic Republic of the Congo",
+      "Public Health",
+      "Disease Outbreak",
+      "Central Africa"
+    ]
+  },
+  {
     "episode_title": "Inside the billion-dollar business of getting a visa",
     "published_date": "Tue, 02 Jun 2026 04:00:00 +0000",
     "episode_url": "https://aj.audio/TheTakePodcast",

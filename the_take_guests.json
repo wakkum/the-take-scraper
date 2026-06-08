@@ -1,5 +1,92 @@
 [
   {
+    "episode_title": "FIFA World Cup: the politics and profits of the beautiful game",
+    "published_date": "Mon, 08 Jun 2026 04:00:00 +0000",
+    "episode_url": "https://omny.fm/shows/the-take/friday",
+    "guests": [
+      {
+        "name": "Ashish Malhotra",
+        "affiliation": "",
+        "bio": "Journalist"
+      }
+    ],
+    "hosts": [
+      "Malika Bilal"
+    ],
+    "producers": [
+      "Tamara Khandaker",
+      "Sarí el-Khalili",
+      "Spencer Cline",
+      "Catherine Nouhan",
+      "Noor Wazwaz",
+      "Alex Roldan",
+      "Rick Rush",
+      "Marcos Bartolomé",
+      "Sonia Bhagat",
+      "Alexandra Locke",
+      "Jana Dabliz",
+      "Adam Abou-Gad",
+      "Vienna Maglio",
+      "Andrew Greiner",
+      "Hisham Abu Salah",
+      "Mohannad al-Melhem"
+    ],
+    "tags": [
+      "FIFA World Cup",
+      "Sports Politics",
+      "Geopolitics",
+      "Football",
+      "Economics"
+    ]
+  },
+  {
+    "episode_title": "Brief: Israel attacks Gaza tent camp . 100 days since US-Israel launched Iran war",
+    "published_date": "Sun, 07 Jun 2026 12:54:49 +0000",
+    "episode_url": "https://omny.fm/shows/the-take/brief-israel-attacks-gaza-tent-camp-100-days-since-us-israel-launched-iran-war",
+    "guests": [
+      {
+        "name": "Hani Mahmoud",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Ali Hashem",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Almigdad Alruhaid",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Nida Ibrahim",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Tareq Abu Azzoum",
+        "affiliation": "Al Jazeera",
+        "bio": "Senior Correspondent"
+      }
+    ],
+    "hosts": [],
+    "producers": [
+      "Marthe van der Wolf",
+      "Alex Roldan",
+      "Andrew Greiner",
+      "Munera AlDosari",
+      "Alexandra Locke"
+    ],
+    "tags": [
+      "Israel-Gaza Conflict",
+      "Middle East Politics",
+      "Iran",
+      "US Foreign Policy",
+      "Lebanon"
+    ]
+  },
+  {
     "episode_title": "Another Take: How activists are fighting homelessness in Los Angeles",
     "published_date": "Sat, 06 Jun 2026 04:00:00 +0000",
     "episode_url": "https://omny.fm/shows/the-take/another-take-how-activists-are-fighting-homelessness-in-los-angeles",

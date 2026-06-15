@@ -1,5 +1,90 @@
 [
   {
+    "episode_title": "Inside Albania’s protests over Jared Kushner’s resort",
+    "published_date": "Mon, 15 Jun 2026 04:00:00 +0000",
+    "episode_url": "https://omny.fm/shows/the-take/inside-albania-s-protests-over-jared-kushner-s-resort",
+    "guests": [
+      {
+        "name": "Mitchell Prothero",
+        "affiliation": null,
+        "bio": "Journalist"
+      }
+    ],
+    "hosts": [
+      "Malika Bilal"
+    ],
+    "producers": [
+      "Tamara Khandaker",
+      "Noor Wazwaz",
+      "Marcos Bartolomé",
+      "Spencer Cline",
+      "Jana Dabliz",
+      "Sarí el-Khalili",
+      "Alex Roldan",
+      "Rick Rush",
+      "Sonia Bhagat",
+      "Alexandra Locke",
+      "Catherine Nouhan",
+      "Adam Abou-Gad",
+      "Vienna Maglio",
+      "Hisham Abu Salah",
+      "Mohannad Al-Melhem"
+    ],
+    "tags": [
+      "Albania",
+      "Protests",
+      "Foreign Investment",
+      "Real Estate Development"
+    ]
+  },
+  {
+    "episode_title": "Brief: Iran and US close to signing a deal. Israel continues attacks on Lebanon",
+    "published_date": "Sun, 14 Jun 2026 15:01:24 +0000",
+    "episode_url": "https://omny.fm/shows/the-take/brief-iran-and-us-close-to-signing-a-deal-israel-continues-attacks-on-lebanon",
+    "guests": [
+      {
+        "name": "Tohid Asadi",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Heidi Pett",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Dmitry Medvedenko",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Nida Ibrahim",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Hani Mahmoud",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      }
+    ],
+    "hosts": [],
+    "producers": [
+      "Marthe van der Wolf",
+      "Alex Roldan",
+      "Andrew Greiner",
+      "Munera AlDosari",
+      "Alexandra Locke"
+    ],
+    "tags": [
+      "Israel",
+      "Palestine",
+      "Gaza Conflict",
+      "Iran-US Relations",
+      "Lebanon"
+    ]
+  },
+  {
     "episode_title": "Another Take: What can humanity do about heat waves?",
     "published_date": "Sat, 13 Jun 2026 04:00:00 +0000",
     "episode_url": "https://omny.fm/shows/the-take/another-take-what-can-humanity-do-about-heat-waves",

@@ -1,5 +1,92 @@
 [
   {
+    "episode_title": "What the World Cup looks like from Gaza",
+    "published_date": "Mon, 22 Jun 2026 04:00:00 +0000",
+    "episode_url": "https://omny.fm/shows/the-take/what-the-world-cup-looks-like-from-gaza",
+    "guests": [
+      {
+        "name": "Maram Humaid",
+        "affiliation": "Al Jazeera",
+        "bio": "Reporter"
+      }
+    ],
+    "hosts": [
+      "Malika Bilal"
+    ],
+    "producers": [
+      "Marcos Bartolomé",
+      "Noor Wazwaz",
+      "Spencer Cline",
+      "Catherine Nouhan",
+      "Jana Dabliz",
+      "Tamara Khandaker",
+      "Sarí el-Khalili",
+      "Alex Roldan",
+      "Sonia Bhagat",
+      "Alexandra Locke",
+      "Adam Abou-Gad",
+      "Vienna Maglio",
+      "Andrew Greiner",
+      "Hisham Abu Salah",
+      "Mohannad al-Melhem"
+    ],
+    "tags": [
+      "Gaza",
+      "Football",
+      "World Cup",
+      "Palestine",
+      "Sports"
+    ]
+  },
+  {
+    "episode_title": "Brief: Iran closes Strait of Hormuz. Israel wants to continue its military occupation",
+    "published_date": "Sun, 21 Jun 2026 12:59:01 +0000",
+    "episode_url": "https://omny.fm/shows/the-take/brief-iran-closes-strait-of-hormuz-israel-wants-to-continue-its-military-occupation",
+    "guests": [
+      {
+        "name": "Osama Bin Javid",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Resul Serdar",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Zeina Khodr",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Nour Odeh",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Gabriel Elizondo",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      }
+    ],
+    "hosts": [],
+    "producers": [
+      "Marthe van der Wolf",
+      "Alex Roldan",
+      "Andrew Greiner",
+      "Munera AlDosari",
+      "Alexandra Locke",
+      "Joanne de Frias"
+    ],
+    "tags": [
+      "Israel-Palestine Conflict",
+      "Gaza",
+      "Lebanon",
+      "Iran",
+      "Middle East"
+    ]
+  },
+  {
     "episode_title": "Another Take: Argentina’s biggest fans might be South Asians",
     "published_date": "Sat, 20 Jun 2026 04:00:00 +0000",
     "episode_url": "https://omny.fm/shows/the-take/another-take-argentina-s-biggest-fans-might-be-south-asians",

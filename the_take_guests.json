@@ -1,5 +1,41 @@
 [
   {
+    "episode_title": "Who’s being left out of the World Cup?",
+    "published_date": "Tue, 23 Jun 2026 04:00:00 +0000",
+    "episode_url": "https://omny.fm/shows/the-take/who-s-being-left-out-of-the-world-cup",
+    "guests": [
+      {
+        "name": "Boima Tucker",
+        "affiliation": "Africa is Country",
+        "bio": "Director of Operations"
+      }
+    ],
+    "hosts": [
+      "Malika Bilal"
+    ],
+    "producers": [
+      "Sonia Bhagat",
+      "Tamara Khandaker",
+      "Marcos Bartolomé",
+      "Spencer Cline",
+      "Jana Dabliz",
+      "Catherine Nouhan",
+      "Noor Wazwaz",
+      "Sarí el-Khalili",
+      "Alex Roldan",
+      "Hisham Abu Salah",
+      "Mohannad al-Melhemm",
+      "Alexandra Locke"
+    ],
+    "tags": [
+      "World Cup",
+      "Immigration Policy",
+      "Sports",
+      "United States",
+      "International Relations"
+    ]
+  },
+  {
     "episode_title": "What the World Cup looks like from Gaza",
     "published_date": "Mon, 22 Jun 2026 04:00:00 +0000",
     "episode_url": "https://omny.fm/shows/the-take/what-the-world-cup-looks-like-from-gaza",

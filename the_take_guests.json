@@ -1,5 +1,85 @@
 [
   {
+    "episode_title": "Mehdi Hasan: disrupting democracy’s decline",
+    "published_date": "Mon, 29 Jun 2026 04:00:00 +0000",
+    "episode_url": "https://omny.fm/shows/the-take/mehdi-hasan-disrupting-democracy-s-decline",
+    "guests": [
+      {
+        "name": "Mehdi Hasan",
+        "affiliation": "Zeteo",
+        "bio": "Editor-in-Chief"
+      }
+    ],
+    "hosts": [
+      "Malika Bilal"
+    ],
+    "producers": [
+      "Sonia Bhagat",
+      "Alexandra Locke",
+      "Tamara Khandaker",
+      "Spencer Cline",
+      "Jana Dabliz",
+      "Alex Roldan",
+      "Hisham Abu Salah",
+      "Mohannad al-Melhem"
+    ],
+    "tags": [
+      "US Politics",
+      "UK Politics",
+      "Journalism",
+      "Democracy",
+      "Brexit"
+    ]
+  },
+  {
+    "episode_title": "Brief: Iran launches retaliatory strikes on US targets. Israel and Lebanon agree on new framework",
+    "published_date": "Sun, 28 Jun 2026 11:46:31 +0000",
+    "episode_url": "https://omny.fm/shows/the-take/brief-iran-launches-retaliatory-strikes-on-us-targets-israel-and-lebanon-agree-on-new-framework",
+    "guests": [
+      {
+        "name": "Resul Serdar",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Mohamed Vall",
+        "affiliation": "Al Jazeera",
+        "bio": "Journalist"
+      },
+      {
+        "name": "Rob McBride",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Nida Ibrahim",
+        "affiliation": "Al Jazeera",
+        "bio": "correspondent"
+      },
+      {
+        "name": "Tareq Abu Azzoum",
+        "affiliation": "Al Jazeera",
+        "bio": "Senior Correspondent"
+      }
+    ],
+    "hosts": [],
+    "producers": [
+      "Marthe van der Wolf",
+      "Alex Roldan",
+      "Andrew Greiner",
+      "Munera AlDosari",
+      "Alexandra Locke",
+      "Joanne de Frias"
+    ],
+    "tags": [
+      "Middle East",
+      "Iran",
+      "Israel",
+      "Gaza",
+      "Lebanon"
+    ]
+  },
+  {
     "episode_title": "Another Take: Qatar’s World Cup, from the inside out",
     "published_date": "Sat, 27 Jun 2026 04:00:00 +0000",
     "episode_url": "https://omny.fm/shows/the-take/another-take-qatar-s-world-cup-from-the-inside-out",

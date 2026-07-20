@@ -1,5 +1,43 @@
 [
   {
+    "episode_title": "Brief: US strikes Iran for 8th straight night, Iran kills US soldiers in Jordan",
+    "published_date": "Sun, 19 Jul 2026 11:56:37 +0000",
+    "episode_url": "https://aj.audio/TheTakePodcast",
+    "guests": [
+      {
+        "name": "Heidi Zhou-Castro",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Moath al-Kahlout",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Zeina Khodr",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      }
+    ],
+    "hosts": [],
+    "producers": [
+      "Marthe van der Wolf",
+      "Alex Roldan",
+      "Andrew Greiner",
+      "Munera AlDosari",
+      "Alexandra Locke",
+      "Joanne de Frias"
+    ],
+    "tags": [
+      "US-Iran conflict",
+      "Israel-Gaza conflict",
+      "Middle East",
+      "Military strikes",
+      "Jordan"
+    ]
+  },
+  {
     "episode_title": "Brief: US attacks Iran again, Hamas dissolves government in Gaza",
     "published_date": "Sun, 12 Jul 2026 10:50:45 +0000",
     "episode_url": "https://omny.fm/shows/the-take/brief-us-attacks-iran-again-hamas-dissolves-government-in-gaza",

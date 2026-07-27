@@ -1,5 +1,43 @@
 [
   {
+    "episode_title": "Brief: US pauses Iran strikes, Israel continues attacking Gaza",
+    "published_date": "Sun, 26 Jul 2026 11:37:26 +0000",
+    "episode_url": "https://omny.fm/shows/the-take/brief-us-pauses-iran-strikes-israel-continues-attacking-gaza",
+    "guests": [
+      {
+        "name": "Rosiland Jordan",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Ibrahim al-Khalili",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Nour Odeh",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      }
+    ],
+    "hosts": [],
+    "producers": [
+      "Marthe van der Wolf",
+      "Alex Roldan",
+      "Andrew Greiner",
+      "Munera AlDosari",
+      "Alexandra Locke",
+      "Joanne de Frias"
+    ],
+    "tags": [
+      "Israel-Gaza conflict",
+      "US foreign policy",
+      "Middle East",
+      "West Bank",
+      "Casualties"
+    ]
+  },
+  {
     "episode_title": "Brief: US strikes Iran for 8th straight night, Iran kills US soldiers in Jordan",
     "published_date": "Sun, 19 Jul 2026 11:56:37 +0000",
     "episode_url": "https://aj.audio/TheTakePodcast",

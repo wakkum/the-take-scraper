@@ -1,5 +1,42 @@
 [
   {
+    "episode_title": "Brief: Israel kills family in Gaza, why did Houthis launch offensive?",
+    "published_date": "Sun, 13 Sep 2026 09:44:44 +0000",
+    "episode_url": "https://omny.fm/shows/the-take/brief-israel-kills-family-in-gaza-why-did-houthis-launch-offensive",
+    "guests": [
+      {
+        "name": "Hassan Ahmadian",
+        "affiliation": "Tehran University",
+        "bio": null
+      },
+      {
+        "name": "Hind Khoudary",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Nida Ibrahim",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      }
+    ],
+    "hosts": [],
+    "producers": [
+      "David Enders",
+      "Alex Roldan",
+      "Andrew Greiner",
+      "Munera AlDosari",
+      "Alexandra Locke"
+    ],
+    "tags": [
+      "Israel-Palestine Conflict",
+      "Gaza",
+      "Yemen",
+      "Houthis",
+      "Middle East"
+    ]
+  },
+  {
     "episode_title": "Brief: Iran retaliates after US sinks ships, Israeli minister wants ethnic cleansing in Gaza",
     "published_date": "Sun, 06 Sep 2026 09:10:43 +0000",
     "episode_url": "https://omny.fm/shows/the-take/brief-iran-retaliates-after-us-sinks-ships-israeli-minister-wants-ethnic-cleansing-in-gaza",

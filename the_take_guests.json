@@ -1,5 +1,46 @@
 [
   {
+    "episode_title": "Brief: US sending more troops to Middle East even as it withdraws from Iraq",
+    "published_date": "Sun, 04 Oct 2026 08:28:45 +0000",
+    "episode_url": "https://aj.audio/TheTakePodcast",
+    "guests": [
+      {
+        "name": "Tanya Noury",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Mahmoud Abdelwahed",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Ibrahim al-Khalili",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Nida Ibrahim",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      }
+    ],
+    "hosts": [],
+    "producers": [
+      "David Enders",
+      "Alex Roldan",
+      "Adam Abou-Gad",
+      "Alexandra Locke"
+    ],
+    "tags": [
+      "Middle East",
+      "Israel-Palestine Conflict",
+      "Gaza",
+      "US Foreign Policy",
+      "Iraq"
+    ]
+  },
+  {
     "episode_title": "Brief: Trump rejects Iran's proposal, why doesn't Gaza have wheelchairs?",
     "published_date": "Sun, 27 Sep 2026 10:22:02 +0000",
     "episode_url": "https://aj.audio/TheTakePodcast",

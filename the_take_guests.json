@@ -1,5 +1,46 @@
 [
   {
+    "episode_title": "Brief: Will diplomacy work between US and Iran before elections?",
+    "published_date": "Sun, 01 Nov 2026 10:32:35 +0000",
+    "episode_url": "https://omny.fm/shows/the-take/brief-will-diplomacy-work-between-us-and-iran-before-elections",
+    "guests": [
+      {
+        "name": "Rosiland Jordan",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Mohammed Vall",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Tareq Abu Azzoum",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      },
+      {
+        "name": "Nour Odeh",
+        "affiliation": "Al Jazeera",
+        "bio": "Correspondent"
+      }
+    ],
+    "hosts": [],
+    "producers": [
+      "David Enders",
+      "Alex Roldan",
+      "Adam Abou-Gad",
+      "Alexandra Locke"
+    ],
+    "tags": [
+      "US-Iran Relations",
+      "Israel-Palestine Conflict",
+      "Gaza",
+      "Diplomacy",
+      "Elections"
+    ]
+  },
+  {
     "episode_title": "Brief: Israel locks down Hebron, why is WFP cutting aid to Gaza?",
     "published_date": "Sun, 25 Oct 2026 08:38:42 +0000",
     "episode_url": "https://aj.audio/TheTakePodcast",
